@@ -2,8 +2,10 @@
 
 // an array which stores the correct answers
 const correctAnswers = ['B', 'B', 'B', 'B'];
-// select the quiz-form class and set it to (const) form
+// select the .quiz-form class and set it to (const) form
 const form = document.querySelector('.quiz-form');
+// select the .result class and set it to (const) result
+const result = document.querySelector('.result');
 
 form.addEventListener('submit', e => {
   // prevent the page from refreshing
@@ -20,5 +22,7 @@ form.addEventListener('submit', e => {
     }
   });
 
-  console.log(score);
+  // show the result on the page
+  result.querySelector('span').textContent = `${score}%`; 
+  result.classList.remove('d-none');
 });
