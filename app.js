@@ -24,7 +24,19 @@ form.addEventListener('submit', e => {
 
   // show the result on the page
   scrollTo(0,0);
-  result.querySelector('span').textContent = `${score}%`; 
   result.classList.remove('d-none');
+
+  // make a score animation using the setInterval method
+
+  let output = 0;
+  const timer = setInterval(() => {
+    result.querySelector('span').textContent = `${output}%`;
+    if(output === score){
+      clearInterval(timer);
+    } else {
+      output++;
+    }
+  }, 50);
+
 });
 
